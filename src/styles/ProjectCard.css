@@ -1,0 +1,209 @@
+.project-card {
+  background: rgba(11, 12, 42, 0.8);
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(106, 27, 154, 0.1);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #6A1B9A, #8E24AA, #3F51B5, #00BCD4) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(106, 27, 154, 0.3);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(106, 27, 154, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.project-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #00BCD4, #3F51B5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-badge {
+  background: rgba(106, 27, 154, 0.2);
+  color: #00BCD4;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(106, 27, 154, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+  background: rgba(106, 27, 154, 0.4);
+  transform: translateY(-2px);
+}
+
+.project-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-btn {
+  flex: 1;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.live-btn {
+  background: linear-gradient(135deg, #00BCD4, #3F51B5);
+  color: white;
+  border: none;
+}
+
+.live-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.4);
+}
+
+.github-btn {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid #6A1B9A;
+}
+
+.github-btn:hover {
+  background: #6A1B9A;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(106, 27, 154, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-card {
+    margin-bottom: 2rem;
+  }
+  
+  .project-content {
+    padding: 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.3rem;
+  }
+  
+  .project-buttons {
+    flex-direction: column;
+  }
+  
+  .project-btn {
+    width: 100%;
+  }
+} 
