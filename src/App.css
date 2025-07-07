@@ -225,17 +225,15 @@ section {
 .name-container {
   display: inline-block;
   white-space: nowrap;
-  overflow: hidden;
-  animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
-  border-right: 3px solid var(--primary);
-  letter-spacing: 1px;
-  font-weight: 500; /* Reduced from default 600 */
+  gap: 0.2rem;
+  letter-spacing: 0;
 }
 
-.highlight {
-  display: inline-block;
-  position: relative;
-  margin-right: 10px;
+.highlight,
+.last-name {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
 }
 
 @keyframes typing {
@@ -776,139 +774,52 @@ section {
   scrollbar-width: none;
 }
 
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 3.5rem;
-  }
-
-  .tagline {
-    font-size: 1.3rem;
-    animation: fadeInUp 1s ease-out 0.3s both;
-  }
-
-  .greeting {
-    font-size: 1.1rem;
-    white-space: normal;
-    animation: fadeInUp 1s ease-out both;
-    border-right: none;
-  }
-
-  .name-container {
-    width: 100%;
-    animation: typing 3s steps(30, end);
-    border-right: none;
-  }
-
-  main {
-    margin-left: 0;
-    width: 100vw;
-    padding-top: 70px;
-  }
-
+@media (max-width: 900px) {
   .hero-content {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 0 0.5rem;
     text-align: center;
-    gap: 2rem;
   }
-
-  .profile-image {
-    width: 250px;
-    height: 250px;
+  .greeting {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+    text-align: center;
   }
-
-  .social-links {
-    justify-content: center;
+  .hero h1, .name-container, .highlight, .last-name {
+    font-size: 1.7rem;
+    text-align: center;
+    word-break: break-word;
   }
-
-  .scroll-button-container {
-    right: 1rem;
-    bottom: 5rem;
-  }
-
-  .scroll-button {
-    width: 50px;
-    height: 50px;
-    font-size: 28px;
-  }
-
-  .cta-buttons {
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .resume-btn {
-    padding: 1rem 2rem;
+  .intro-text, .tagline {
     font-size: 1rem;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 95vw;
+    word-break: break-word;
   }
-
-  .about h2 {
-    font-size: 3rem;
-  }
-
-  .skills-section h3 {
-    font-size: 1.8rem;
-  }
-
-  .skill-item {
-    flex: 1 1 100%;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 1rem;
-  }
-
-  .projects h2 {
-    font-size: 3rem;
-  }
-
-  .achievements h2 {
-    font-size: 3rem;
-  }
-
-  .achievement-category h3 {
-    font-size: 1.8rem;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr;
+  .name-container {
+    gap: 0.1rem;
+    white-space: normal;
   }
 }
-
-/* Remove duplicate animations */
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 600px) {
+  .hero-content {
+    gap: 0.7rem;
+    padding: 0 0.2rem;
   }
-  to {
-    transform: rotate(360deg);
+  .greeting {
+    font-size: 0.8rem;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .hero h1, .name-container, .highlight, .last-name {
+    font-size: 1.1rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .intro-text, .tagline {
+    font-size: 0.85rem;
+    max-width: 98vw;
+  }
 }
 
 /* --- Contact Section Styles --- */
@@ -1413,22 +1324,47 @@ section {
   filter: drop-shadow(0 0 6px #fa71cd99);
 }
 @media (max-width: 900px) {
-  .footer-main {
+  .footer-main, .footer-bottom {
     flex-direction: column;
-    align-items: center;
-    gap: 1.7rem;
-    padding: 2.5rem 1rem 1.7rem 1rem;
-  }
-  .footer-left {
     align-items: center;
     text-align: center;
-    padding-left: 0;
+    gap: 0.7rem;
+    width: 100%;
   }
-  .footer-bottom {
+  .footer-nav {
+    display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
-    align-items: center;
-    text-align: center;
-    padding: 1.2rem 1rem 1.2rem 1rem;
+    margin: 0.5rem 0;
+  }
+  .footer-socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.2rem;
+    margin: 0.5rem 0;
+  }
+  .footer-social-btn {
+    font-size: 1.7rem;
+    margin: 0 0.2rem;
+  }
+  .footer-made, .footer-bottom {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+}
+@media (max-width: 600px) {
+  .footer-main, .footer-bottom {
+    gap: 0.4rem;
+  }
+  .footer-socials {
+    gap: 1rem;
+  }
+  .footer-social-btn {
+    font-size: 1.3rem;
+  }
+  .footer-nav {
+    gap: 0.3rem;
   }
 }
