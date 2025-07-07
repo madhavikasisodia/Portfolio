@@ -6,6 +6,7 @@ import BackgroundPattern from "./components/BackgroundPattern";
 import ProjectCard from "./components/ProjectCard";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import myPhoto from "./assets/my-photo.jpg";
 
 // Sample project data
 const projects = [
@@ -69,7 +70,7 @@ function App() {
           <div className="hero-content">
             <div className="profile-container">
               <img
-                src="src\assets\my-photo.jpg"
+                src={myPhoto}
                 alt="Madhavika Sisodia"
                 className="profile-image"
               />
